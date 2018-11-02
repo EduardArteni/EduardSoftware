@@ -1,0 +1,42 @@
+package Edu1;
+
+import java.util.Random;
+
+//Random rand = new Random();
+//int  n = rand.nextInt(50) + 1;
+public class Tester {
+	static String s = new String();
+
+	public static void main(String[] args) {
+		int maxNumber = 1000000;
+		int minNumber = 1;
+		int number = 0;
+		int numberOfQuestions = 0;
+		int tempo = maxNumber / 2 + minNumber / 2;
+		Random rand = new Random();
+		int n = rand.nextInt(maxNumber) + 1;
+		System.out.println("Random number is : " + n);
+		while (number == 0) {
+			numberOfQuestions++;
+			if (n > tempo) {
+				minNumber = tempo;
+			}
+			if (n < tempo) {
+				maxNumber = tempo;
+			}
+			if (n == tempo) {
+				number = tempo;
+				break;
+			}
+			tempo = maxNumber / 2 + minNumber / 2;
+			if (number != 0) {
+				break;
+			}
+		}
+		System.out.println("Your number is " + number);
+		System.out.println("I guessed your number in " + numberOfQuestions + " questions. I won");
+
+	}
+}
+//Scanner input = new Scanner(System.in);
+// s = input.next();
