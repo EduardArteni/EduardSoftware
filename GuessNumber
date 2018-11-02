@@ -1,0 +1,47 @@
+package Edu1;
+
+import java.util.Scanner;
+
+public class GuessNr {
+	static String s = new String();
+
+	public static void main(String[] args) {
+		int maxNumber = 100;
+		int minNumber = 1;
+		int numberToBeGuessed = 0;
+		int numberOfQuestions = 0;
+		int tempo = maxNumber / 2 + minNumber / 2;
+
+		System.out.println("Choose a natural number 1-" + maxNumber + "(Not 0 ! and Not " + maxNumber + " !");
+		while (numberToBeGuessed == 0) {
+			numberOfQuestions++;
+			System.out.println("How is your number for " + tempo + " ?");
+			Scanner input = new Scanner(System.in);
+			s = input.next();
+			if (s.equalsIgnoreCase("Bigger")) {
+				minNumber = tempo;
+			}
+			if (s.equalsIgnoreCase("Smaller")) {
+				maxNumber = tempo;
+			}
+			if (s.equalsIgnoreCase("Equal")) {
+				numberToBeGuessed = tempo;
+				break;
+			}
+			System.out.println(minNumber);
+			System.out.println(maxNumber);
+			System.out.println(numberOfQuestions);
+			tempo = maxNumber / 2 + minNumber / 2;
+			if (numberToBeGuessed != 0) {
+				break;
+			}
+			System.out.println("Tempo is " + tempo);
+			System.out.println("Big limit " + maxNumber);
+			System.out.println("Small limit " + minNumber);
+			System.out.println("-------------------------");
+		}
+		System.out.println("Your number is " + numberToBeGuessed);
+		System.out.println("I guessed your number in " + numberOfQuestions + " questions. I won");
+
+	}
+}
